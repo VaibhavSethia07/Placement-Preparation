@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -18,10 +19,10 @@ public class CustomHashMap {
 		bw.write("Number of entries: ");
 		bw.flush();
 
-		int N = Integer.parseInt(br.readLine());
+		int N = Integer.parseInt(BoundedLineReader.readLine(br, 5_000_000));
 
 		for (int i = 0; i < N; i++) {
-			String[] person = br.readLine().split(" ");
+			String[] person = BoundedLineReader.readLine(br, 5_000_000).split(" ");
 			entry.put(person[0], person[1]);
 		}
 
